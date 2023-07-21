@@ -1,4 +1,4 @@
-# A-Unity-C-Sharp-Server
+# 超级C#服务器
 使用socket实现C#服务器，可用于unity服务端，目标支持大规模MMO游戏
 
 目前实现了一个网络框架，通讯协议已经完成，可连接Mysql（需导入特定的包）。
