@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using MySqlX.XDevAPI;
+using Server.Script.DB;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,14 +19,14 @@ namespace UnityServer
     {
         public static void Main()
         {
-            // 数据库配置
-            //if (!dbmanager.connect("game", "127.0.0.1", 3306, "root", "123456"))
-            //{
-            //    return;
-            //}
+            //数据库配置
+            if (!DbManager.Connect("game", "127.0.0.1", 3306, "root", "123456"))
+            {
+                return;
+            }
 
             //服务器启动端口
-            NetManager.StartLoop(9000);
+            //NetManager.StartLoop(9000);
         }
     }
 }
