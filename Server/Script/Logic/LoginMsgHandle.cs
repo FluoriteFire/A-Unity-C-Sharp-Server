@@ -12,7 +12,7 @@ public partial class MsgHandler
 		//注册
 		if (DbManager.Register(msg.id, msg.pw))
 		{
-			DbManager.CreatePlayer(msg.id);
+			//DbManager.CreatePlayer(msg.id);
 			msg.result = 0;
 		}
 		else
@@ -28,12 +28,12 @@ public partial class MsgHandler
 	{
 		MsgLogin msg = (MsgLogin)msgBase;
 		//密码校验
-		if (!DbManager.CheckPassword(msg.id, msg.pw))
-		{
-			msg.result = 1;
-			NetManager.Send(c, msg);
-			return;
-		}
+		//if (!DbManager.CheckPassword(msg.id, msg.pw))
+		//{
+		//	msg.result = 1;
+		//	NetManager.Send(c, msg);
+		//	return;
+		//}
 		//不允许再次登陆
 		if (c.player != null)
 		{
@@ -53,21 +53,21 @@ public partial class MsgHandler
 			NetManager.Close(other.state);
 		}
 		//获取玩家数据
-		PlayerData playerData = DbManager.GetPlayerData(msg.id);
-		if (playerData == null)
-		{
-			msg.result = 1;
-			NetManager.Send(c, msg);
-			return;
-		}
-		//构建Player
-		Player player = new Player(c);
-		player.id = msg.id;
-		player.data = playerData;
-		PlayerManager.AddPlayer(msg.id, player);
-		c.player = player;
+		//PlayerData playerData = DbManager.GetPlayerData(msg.id);
+		//if (playerData == null)
+		//{
+		//	msg.result = 1;
+		//	NetManager.Send(c, msg);
+		//	return;
+		//}
+		////构建Player
+		//Player player = new Player(c);
+		//player.id = msg.id;
+		//player.data = playerData;
+		//PlayerManager.AddPlayer(msg.id, player);
+		//c.player = player;
 		//返回协议
-		msg.result = 0;
-		player.Send(msg);
+		//msg.result = 0;
+		//player.Send(msg);
 	}
 }

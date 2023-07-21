@@ -1,11 +1,8 @@
 ﻿using System;
-using MySql.Data.MySqlClient;
 using System.Text.RegularExpressions;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
-using MySql.EntityFrameworkCore;
 using Server.Script.DB;
-using Org.BouncyCastle.Crypto.Engines;
 
 public class DbManager
 {
@@ -16,7 +13,7 @@ public class DbManager
     public static bool Connect(string db, string ip, int port, string user, string pw)
     {
         //连接参数
-        string s = string.Format("server={0};port={1};database={2};uid={3};pwd={4};CharSet=utf8", ip, port, db, user, pw);
+        string s = string.Format("User ID={0};Password={1};Host={2};Port={3};Database={4};", user, pw, ip, port, db);
         //创建baseDb对象
         baseDb = new BaseDbContext(s);
         //连接

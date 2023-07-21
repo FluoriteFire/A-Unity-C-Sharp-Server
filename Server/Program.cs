@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MySqlX.XDevAPI;
 using Server.Script.DB;
 using System;
 using System.Collections;
@@ -20,10 +19,27 @@ namespace UnityServer
         public static void Main()
         {
             //数据库配置
-            if (!DbManager.Connect("game", "127.0.0.1", 3306, "root", "123456"))
+            if (!DbManager.Connect("test", "localhost", 5432, "root", "123456"))
             {
                 return;
             }
+
+            var s1 = new Student()
+            {
+                Id = 1,
+                Name = "Stu1",
+            };
+            DbManager.baseDb.Student.Add(s1);
+
+            var s2 = new Student()
+            {
+                Id = 2,
+                Name = "Stu2",
+
+            };
+            DbManager.baseDb.Student.Add(s2);
+
+            Console.WriteLine(DbManager.baseDb.SaveChanges());
 
             //服务器启动端口
             //NetManager.StartLoop(9000);

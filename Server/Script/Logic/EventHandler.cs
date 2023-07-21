@@ -9,7 +9,7 @@ public partial class EventHandler
 		if (c.player != null)
 		{
 			//保存数据
-			DbManager.UpdatePlayerData(c.player.id, c.player.data);
+			//DbManager.UpdatePlayerData(c.player.id, c.player.data);
 			//移除
 			PlayerManager.RemovePlayer(c.player.id);
 		}
