@@ -24,23 +24,6 @@ namespace UnityServer
                 return;
             }
 
-            var s1 = new Student()
-            {
-                Id = 1,
-                Name = "Stu1",
-            };
-            DbManager.baseDb.Student.Add(s1);
-
-            var s2 = new Student()
-            {
-                Id = 2,
-                Name = "Stu2",
-
-            };
-            DbManager.baseDb.Student.Add(s2);
-
-            Console.WriteLine(DbManager.baseDb.SaveChanges());
-
             //服务器启动端口
             //NetManager.StartLoop(9000);
         }

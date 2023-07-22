@@ -33,7 +33,10 @@ public class DbManager
     public static bool IsAccountExist(int id)
     {
         //TODO
-        return true;
+        if (baseDb.Find(typeof(Account), id) != null)
+            return true;
+        else
+            return false;
     }
 
     //注册
@@ -46,7 +49,23 @@ public class DbManager
             return false;
         }
         //写入数据库User表
-        return true;
+        var user = new Account()
+        {
+            Id = id,
+            PassWord = pw,
+        };
+        baseDb.Account.Add(user);
+        //检测是否注册成功
+        if(baseDb.SaveChanges() != 0)
+        {
+            Console.WriteLine("[数据库] Register succ");
+            return true;
+        }
+        else
+        {
+            Console.WriteLine("[数据库] Register fail, something wrong");
+            return false;
+        }
     }
 
 }

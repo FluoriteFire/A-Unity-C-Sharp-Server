@@ -22,14 +22,14 @@ namespace Server.Script.DB
             optionsBuilder.UseNpgsql(@_connectionString);
         }
 
-        public DbSet<Student> Student { get; set; }
+        public DbSet<Account> Account { get; set; }
     }
 }
 
-public class Student
+public class Account
 {
     [Key]
     public int Id { get; set; }
-    public string Name { get; set; }
+    public string PassWord { get; set; }
 }
 
