@@ -7,5 +7,11 @@ public class ClientState
     public Socket socket;
     public ByteArray readBuff = new ByteArray();
     //Ping
-    public long lastPingTime = 0;
+    public long lastPingTime = NetManager.GetTimeStamp();
+    
+    public string rsa_publickey = "";
+    public string rsa_privatekey = "";
+    public string session_key = "";
+
+    public Player player;
 }
